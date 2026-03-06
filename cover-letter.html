@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AI Cover Letter | Cristi Prodan</title>
+    <link rel="stylesheet" href="index_files/cv.css" />
+    <style>
+      .tool-wrap {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 0.9rem;
+      }
+      .tool-card {
+        border: 1px solid rgba(31, 42, 55, 0.14);
+        border-radius: 0.7rem;
+        background: rgba(255, 255, 255, 0.76);
+        padding: 1rem;
+      }
+      .grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 0.7rem;
+      }
+      label {
+        display: block;
+        font-weight: 600;
+        margin-bottom: 0.35rem;
+      }
+      input,
+      select,
+      textarea,
+      button {
+        width: 100%;
+        font: inherit;
+      }
+      input,
+      select,
+      textarea {
+        border: 1px solid rgba(31, 42, 55, 0.2);
+        border-radius: 0.5rem;
+        padding: 0.55rem 0.65rem;
+        background: #fff;
+      }
+      textarea {
+        min-height: 170px;
+        resize: vertical;
+      }
+      button {
+        border: 1px solid rgba(31, 42, 55, 0.22);
+        border-radius: 999px;
+        background: rgba(31, 42, 55, 0.94);
+        color: #fff;
+        padding: 0.55rem 0.8rem;
+        font-weight: 700;
+        cursor: pointer;
+      }
+      button:disabled {
+        opacity: 0.6;
+        cursor: wait;
+      }
+      .output {
+        white-space: pre-wrap;
+        font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+        line-height: 1.48;
+      }
+      .hint {
+        opacity: 0.78;
+        margin: 0;
+      }
+      @media (max-width: 760px) {
+        .grid {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main class="cv-page">
+      <header class="cv-header">
+        <div class="top-links">
+          <a class="interactive-link" href="index.html">Back to CV</a>
+          <a class="interactive-link" href="interactive-cv.html">Interactive CV</a>
+        </div>
+        <h1>AI Cover Letter Generator</h1>
+        <p class="hint">Uses your current CV from this repository and tailors output to a pasted job description.</p>
+      </header>
+
+      <section class="tool-wrap">
+        <article class="tool-card">
+          <div class="grid">
+            <div>
+              <label for="company">Company</label>
+              <input id="company" placeholder="e.g. Stripe" />
+            </div>
+            <div>
+              <label for="role">Role</label>
+              <input id="role" placeholder="e.g. Senior Backend Engineer" />
+            </div>
+          </div>
+          <div class="grid" style="margin-top: 0.7rem">
+            <div>
+              <label for="tone">Tone</label>
+              <select id="tone">
+                <option value="professional">Professional</option>
+                <option value="direct">Direct</option>
+                <option value="friendly">Friendly</option>
+              </select>
+            </div>
+            <div>
+              <label for="length">Length</label>
+              <select id="length">
+                <option value="short">Short</option>
+                <option value="medium" selected>Medium</option>
+                <option value="long">Long</option>
+              </select>
+            </div>
+          </div>
+          <div style="margin-top: 0.7rem">
+            <label for="job">Job Description</label>
+            <textarea id="job" placeholder="Paste the job description here..."></textarea>
+          </div>
+          <div style="margin-top: 0.8rem">
+            <button id="generate-btn" type="button">Generate cover letter</button>
+          </div>
+          <p class="hint" style="margin-top: 0.7rem">Requires backend server + <code>OPENAI_API_KEY</code>.</p>
+        </article>
+
+        <article class="tool-card">
+          <h2 style="margin-top: 0">Output</h2>
+          <div id="status" class="hint">Idle.</div>
+          <div id="output" class="output"></div>
+        </article>
+      </section>
+    </main>
+
+    <script>
+      const output = document.getElementById("output");
+      const statusEl = document.getElementById("status");
+      const btn = document.getElementById("generate-btn");
+
+      async function generate() {
+        const jobDescription = document.getElementById("job").value.trim();
+        const company = document.getElementById("company").value.trim();
+        const role = document.getElementById("role").value.trim();
+        const tone = document.getElementById("tone").value;
+        const length = document.getElementById("length").value;
+
+        if (!jobDescription) {
+          statusEl.textContent = "Please paste a job description first.";
+          return;
+        }
+
+        btn.disabled = true;
+        statusEl.textContent = "Generating...";
+        output.textContent = "";
+
+        try {
+          const response = await fetch("/api/cover-letter", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ jobDescription, company, role, tone, length }),
+          });
+          const data = await response.json();
+          if (!response.ok) {
+            throw new Error(data.error || "Request failed");
+          }
+          statusEl.textContent = `Done (${data.model}).`;
+          output.textContent = data.output || "";
+        } catch (error) {
+          statusEl.textContent = `Error: ${error.message}`;
+        } finally {
+          btn.disabled = false;
+        }
+      }
+
+      btn.addEventListener("click", generate);
+    </script>
+  </body>
+</html>
