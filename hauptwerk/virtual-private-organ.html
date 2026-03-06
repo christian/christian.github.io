@@ -1,0 +1,1066 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2018-08-27 Mon 09:38 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Virtual Pipe Organ</title>
+<meta name="generator" content="Org mode" />
+<meta name="author" content="Cristi Prodan" />
+<style type="text/css">
+ <!--/*--><![CDATA[/*><!--*/
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #ccc;
+    box-shadow: 3px 3px 3px #eee;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: visible;
+    padding-top: 1.2em;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    background-color: white;
+    top: -10px;
+    right: 10px;
+    padding: 3px;
+    border: 1px solid black;
+  }
+  pre.src:hover:before { display: inline;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { width: 90%; }
+  /*]]>*/-->
+</style>
+<link href='/images/favicon.ico' rel='shortcut icon' type='image/x-icon'>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+<link rel='stylesheet' type='text/css' href='css/stylesheet.css'>
+<meta name='viewport' content='width=device-width, initial-scale=1'>
+<script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-104091215-1', 'auto');
+ga('send', 'pageview');
+
+</script>
+<script type="text/javascript">
+/*
+@licstart  The following is the entire license notice for the
+JavaScript code in this tag.
+
+Copyright (C) 2012-2013 Free Software Foundation, Inc.
+
+The JavaScript code in this tag is free software: you can
+redistribute it and/or modify it under the terms of the GNU
+General Public License (GNU GPL) as published by the Free Software
+Foundation, either version 3 of the License, or (at your option)
+any later version.  The code is distributed WITHOUT ANY WARRANTY;
+without even the implied warranty of MERCHANTABILITY or FITNESS
+FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
+
+As additional permission under GNU GPL version 3 section 7, you
+may distribute non-source (e.g., minimized or compacted) forms of
+that code without the copy of the GNU GPL normally required by
+section 4, provided you include this license notice and a URL
+through which recipients can access the Corresponding Source.
+
+
+@licend  The above is the entire license notice
+for the JavaScript code in this tag.
+*/
+<!--/*--><![CDATA[/*><!--*/
+ function CodeHighlightOn(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(null != target) {
+     elem.cacheClassElem = elem.className;
+     elem.cacheClassTarget = target.className;
+     target.className = "code-highlighted";
+     elem.className   = "code-highlighted";
+   }
+ }
+ function CodeHighlightOff(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(elem.cacheClassElem)
+     elem.className = elem.cacheClassElem;
+   if(elem.cacheClassTarget)
+     target.className = elem.cacheClassTarget;
+ }
+/*]]>*///-->
+</script>
+</head>
+<body>
+<div id="content">
+<p><a href="../index.html">← Back to main site</a></p>
+<h1 class="title">Virtual Pipe Organ</h1>
+<div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#org16d0dcb">Intro</a></li>
+<li><a href="#orgb221905">Manuals</a>
+<ul>
+<li><a href="#org38bdc58">MIDI processing</a></li>
+</ul>
+</li>
+<li><a href="#orgd71c356">Combination Pistons</a></li>
+<li><a href="#org6cb8fa3">Desk &amp; Bench</a></li>
+<li><a href="#org7746e5d">Pedal Board</a></li>
+<li><a href="#orga854621">Expression Pedals</a></li>
+<li><a href="#org144ba42">Stops and registration</a>
+<ul>
+<li><a href="#org6139042">Attempt No. 1</a></li>
+<li><a href="#org0624b1d">Attempt No. 2</a></li>
+<li><a href="#orgd944706">Attempt No. 3</a></li>
+</ul>
+</li>
+<li><a href="#org48989c0">The computer</a></li>
+<li><a href="#org5372e9a">The software</a></li>
+<li><a href="#orgb6541b5">Sound system &amp; Illumination</a></li>
+<li><a href="#org5d358fc">End result and conclusions</a></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org16d0dcb" class="outline-2">
+<h2 id="org16d0dcb">Intro</h2>
+<div class="outline-text-2" id="text-org16d0dcb">
+<p>
+An old hobby of mine is playing church organ. At the beginning of 2016, I was looking for a digital instrument which imitates the sound of a real organ. In my research I stumbled upon the concept of Virtual Private Organs (VPO). This consists of an <a href="https://upload.wikimedia.org/wikipedia/commons/6/69/Pipe.organ.console.arp.jpg">organ console</a> console (keyboards, pedal, bench) which, instead of being connected to lots of pipes, is connected to a computer. The computer runs a so-called VPO software which loads high-quality samples of the original pipe organs into the RAM memory and plays them through the audio interface, to which a sound system is connected. The software plays the music, as it gets it from the console keys using the MIDI protocol. In other words, when a note is hit on the keyboard, the software plays that note. The end result is playing a real pipe organ in the living room.
+</p>
+
+<p>
+The existing commercial solutions for such an instrucment were too expensive. Labor exceeded by far the cost of materials. <a href="http://www.pcorgan.com/FotosEN.html">Many people</a> have already built such systems in different shapes and formats. I asked myself whether I would be able to also build one given that I had no previous experience with woodworking or electronics.
+</p>
+
+<p>
+My first experiment was to check that I understood the principles right. My KAWAI CA63 piano is able to produce MIDI events through an USB port. I installed the free version of the Hauptwerk VPO software on my good ol' Thinkpad notebook running Windows 7. I connected the laptop to the piano using USB and fired it the software. It worked! I could play/listen to organ sounds when playing the piano, which was quite strange.
+</p>
+
+
+<div class="figure">
+<p><a href="img/1_hauptwerk_piano_kawai.jpg"><img src="./img/thumbs/1_hauptwerk_piano_kawai.jpg" alt="1_hauptwerk_piano_kawai.jpg" /></a>
+</p>
+<p><span class="figure-number">Figure 1: </span>Hauptwerk running on a KAWAI piano</p>
+</div>
+
+<p>
+Deciding to go further and build a complete organ console was not easy. I designed it a few times, then gave up. I convinced myself I would be able to grasp the electronics part eventually. There are a lot of tutorials on YouTube. I had heard about Arduino&#x2026; But the woodworking was something I knew nothing about. I live in an apartment and have no tools. After searching a bit, it turned out there was a <a href="http://www.gz-zh.ch/gz-hirzenbach/atelier-werkstaetten/holz-werkstatt/">Woodworking facility</a> for DIY enthusiasts 15 minutes from where I live. It seemed very well equipped. So I decided to give it a shot and see how far I get.
+</p>
+
+<br class="clear-100">
+</div>
+</div>
+
+
+<div id="outline-container-orgb221905" class="outline-2">
+<h2 id="orgb221905">Manuals</h2>
+<div class="outline-text-2" id="text-orgb221905">
+<p>
+I started with the manuals (keyboards). In order to play a wide range o music, from different historical periods, I decided I wanted three keyboards. They are supposed to be stacked on top of each other. I went for the professional wooden <a href="http://www.fatar.com/pages/TP_60LW.htm#">Fatar keyboards</a> for Organ (cherry naturals, ebony sharps). I had tried them in a retailer shop and they felt nice. Wood also looked better as a design element in the house. I bought them from <a href="http://pausch-e.de/">pausch-e.de</a>, a retailer in Germany. They arrived very well packaged and communication with the shop was prompt and smooth. They even did the customs and I only had to pay Swiss VAT plus import taxes. Some pictures bellow:
+</p>
+
+
+<div class="figure">
+<p><a href="img/3_fatar_keyboards_1.jpg"><img src="./img/thumbs/3_fatar_keyboards_1.jpg" alt="3_fatar_keyboards_1.jpg" /></a>
+</p>
+<p><span class="figure-number">Figure 2: </span>Packaged keyboards</p>
+</div>
+
+<div class="figure">
+<p><a href="img/4_fatar_keyboards_2.jpg"><img src="./img/thumbs/4_fatar_keyboards_2.jpg" alt="4_fatar_keyboards_2.jpg" /></a>
+</p>
+<p><span class="figure-number">Figure 3: </span>Unpacking</p>
+</div>
+
+<div class="figure">
+<p><a href="img/5_fatar_keyboards_3.jpg"><img src="./img/thumbs/5_fatar_keyboards_3.jpg" alt="5_fatar_keyboards_3.jpg" /></a>
+</p>
+<p><span class="figure-number">Figure 4: </span>Wooded Fatar keyboard</p>
+</div>
+
+<br class="clear-100">
+
+<p>
+Next thing I had to do were the key cheeks, the things that hold the keyboards together, stacked on top of each other. For this I found a Sketchup model on the Internet (<sup><a id="fnr.1" class="footref" href="#fn.1">1</a></sup>). I pulled the keyboards block from the 3D model (Figure 5) and so the build began.
+</p>
+
+
+<div class="figure">
+<p><a href="./img/5_1_keyboards_sketchup.jpg"><img src="./img/thumbs/5_1_keyboards_sketchup.jpg" alt="5_1_keyboards_sketchup.jpg" /></a>
+</p>
+<p><span class="figure-number">Figure 5: </span>Sketchup Model for keycheeks</p>
+</div>
+
+<p>
+The friendly guy at the workshop suggested Maple for the wood so I went for that. I bought two long pieces of lumber. I then sawn them to length, planed them and carved them using a manual router. I drilled them on the top/bottom and stacked them on top of each other with dowels. I did not glue them as I may want to access the keyboards in the future when doing maintenance.
+</p>
+
+<p>
+As expected I did many mistakes. In an attempt to achieve maximum efficiency, I set a piece of wood on fire, drilled misaligned holes etc. In the end I got the sizes right, according to the German BDO standard. Bellow are some pictures:
+</p>
+
+<br>
+
+
+<div class="figure">
+<p><a href="img/2_keycheeks_raw_maple.jpg"><img src="./img/thumbs/2_keycheeks_raw_maple.jpg" alt="2_keycheeks_raw_maple.jpg" /></a>
+</p>
+<p><span class="figure-number">Figure 6: </span>Raw maple, rough cuts</p>
+</div>
+
+<div class="figure">
+<p><a href="img/8_keyboards_block_progress_1.jpg"><img src="./img/thumbs/8_keyboards_block_progress_1.jpg" alt="8_keyboards_block_progress_1.jpg" /></a>
+</p>
+<p><span class="figure-number">Figure 7: </span>Work in progress</p>
+</div>
+
+<div class="figure">
+<p><a href="img/9_keyboards_block_progress_2.jpg"><img src="./img/thumbs/9_keyboards_block_progress_2.jpg" alt="9_keyboards_block_progress_2.jpg" /></a>
+</p>
+<p><span class="figure-number">Figure 8: </span>Work in progress</p>
+</div>
+
+<br class="clear-100">
+
+<p>
+For the music stand, I bought a piece of Plexiglas and glued it at a 90 degree angle with another piece of maple. For the piston rails, I cut three thin (1cm) stripes of maple height with the height of 3cm.
+</p>
+
+<p>
+For the top I bought a piece of plywood and cut it to dimensions and put some maple veneer on the edges. I don't like this so much but it was fun to learn how to do it.
+</p>
+
+<p>
+In the end, I sanded everything with a progression of 150, 220 grit and polished the pieces with some transparent satin varnish. The end result looked like this:
+</p>
+
+
+<div class="figure">
+<p><a href="img/11_keycheeks_polished.jpg"><img src="./img/thumbs/11_keycheeks_polished.jpg" alt="11_keycheeks_polished.jpg" /></a>
+</p>
+<p><span class="figure-number">Figure 9: </span>At home, after sanding and varnishing</p>
+</div>
+
+<div class="figure">
+<p><a href="img/11_keycheeks_polished_2.jpg"><img src="./img/thumbs/11_keycheeks_polished_2.jpg" alt="11_keycheeks_polished_2.jpg" /></a>
+</p>
+<p><span class="figure-number">Figure 10: </span>"Lego"</p>
+</div>
+
+<div class="figure">
+<p><a href="img/11_keycheeks_polished_3.jpg"><img src="./img/thumbs/11_keycheeks_polished_3.jpg" alt="11_keycheeks_polished_3.jpg" /></a>
+</p>
+<p><span class="figure-number">Figure 11: </span>Assembling the sanded key cheeks</p>
+</div>
+
+<br style="clear:both;">
+
+<p>
+I mounted the keyboards using screws directly into the key cheeks. This could have probably done better, but this is my first DIY project.
+</p>
+</div>
+
+<div id="outline-container-org38bdc58" class="outline-3">
+<h3 id="org38bdc58">MIDI processing</h3>
+<div class="outline-text-3" id="text-org38bdc58">
+<p>
+Next step was to capture the note-on/ note-off signals from the keyboards and send them to the computer. For this I needed a MIDI encoder PCB. This piece connects to the keyboards, captures the signals from the switches, encodes them into MIDI events (NOTE-ON/ NOTE-OFF) and sends them to the computer (through the audio card) using a MIDI connection.
+</p>
+
+<p>
+I bought the circuits from <a href="http://www.gino-midi.nl">gino-midi.nl</a>, a provider from Netherlands. I chose them because of the very reasonable price and the simple architecture: there is one central board (Gino Midi Big), which merges signals from other scanners (Gino Midi Encoder) and sends them to the computer. The scanners/ encoders for keyboards, pedal boards, stops etc. simply connect to it. gino-midi also offered great support, as I would later learn.
+</p>
+
+<p>
+I ordered:
+</p>
+
+<ul class="org-ul">
+<li>1x GINO Midi Big;</li>
+<li>3x GINO Midi Fatar: these fit perfectly with the Fatar keyboards I had;</li>
+<li>1x GINO Midi Encoder (general): for the potential pedal board (I didn't know at this point weather I would really use this);</li>
+</ul>
+
+<p>
+They arrived nicely packaged and assembling them was very straight forward:
+</p>
+
+
+<div class="figure">
+<p><a href="img/6_gino_midi_1.jpg"><img src="./img/thumbs/6_gino_midi_1.jpg" alt="6_gino_midi_1.jpg" /></a>
+</p>
+<p><span class="figure-number">Figure 12: </span>Gino MIDI box</p>
+</div>
+
+<div class="figure">
+<p><a href="img/7_gino_midi_2.jpg"><img src="./img/thumbs/7_gino_midi_2.jpg" alt="7_gino_midi_2.jpg" /></a>
+</p>
+<p><span class="figure-number">Figure 13: </span>The Gino MIDI circuits</p>
+</div>
+
+<div class="figure">
+<p><a href="img/7_fatar_connector.jpg"><img src="./img/thumbs/7_fatar_connector.jpg" alt="7_fatar_connector.jpg" /></a>
+</p>
+<p><span class="figure-number">Figure 14: </span>Fatar connector on the keyboard, where the Gino Fatar is connected</p>
+</div>
+
+<br style="clear:both;">
+
+<p>
+I mounted them and attached them to the keyboards:
+</p>
+
+
+<div class="figure">
+<p><a href="img/thumbs/10_keyboards_mounted_2.jpg"><img src="./img/thumbs/10_keyboards_mounted_2.jpg" alt="10_keyboards_mounted_2.jpg" /></a>
+</p>
+<p><span class="figure-number">Figure 15: </span>GINO MIDI circuits attached</p>
+</div>
+
+<p>
+I bought a Focusrite Scarlett 6i6 sound card. It has MIDI IN/MIDI OUT connectors. You can plug two headphones in it and it has 6 output channels. The Big Midi Encoder connects to the MIDI-IN port of the sound-card. The sound-card takes the MIDI events from the encoder, sends them to the VPO Software which picks the correct samples from the computer and plays them through the sound-card.
+</p>
+
+<p>
+After putting everything together and connecting the power supply to the Big-MIDI encoder I had a working "setup" and I was able to play the "organ" on the keyboards.
+</p>
+
+<br class="clear-250">
+
+
+<div class="figure">
+<p><a href="img/10_keyboards_mounted_1.jpg"><img src="./img/thumbs/10_keyboards_mounted_1.jpg" alt="10_keyboards_mounted_1.jpg" /></a>
+</p>
+<p><span class="figure-number">Figure 16: </span>Mounted block</p>
+</div>
+
+<div class="figure">
+<p><a href="img/10_keyboards_mounted_1.jpg"><img src="./img/thumbs/10_keyboards_mounted_3.jpg" alt="10_keyboards_mounted_3.jpg" /></a>
+</p>
+</div>
+
+<div class="figure">
+<p><a href="img/10_keyboards_mounted_4.jpg"><img src="./img/thumbs/10_keyboards_mounted_4.jpg" alt="10_keyboards_mounted_4.jpg" /></a>
+</p>
+</div>
+
+<br style="clear:both;">
+</div>
+</div>
+</div>
+
+
+<div id="outline-container-orgd71c356" class="outline-2">
+<h2 id="orgd71c356">Combination Pistons</h2>
+<div class="outline-text-2" id="text-orgd71c356">
+<p>
+Next step was building the "combination pistons". It is very useful when playing the organ to store different combinations of stops in some sort of memory. Instead of pulling all the stops every time, one could change the whole registration with a push of a button (piston). These buttons are placed between the manuals so one can easily reach them while playing. The VPO software has the ability of storing such combinations in memory. It has buttons for activating the different combinations and those buttons can be accessed using a touch screen monitor. Obviously it would be much more convenient to activate them using real buttons.
+</p>
+
+<p>
+I needed some physical buttons that emulate the buttons of the software. The VPO software can be configured to listen for a certain MIDI event so that when received, the software activates the piston and implicitly, "pulls" the right combination of stops.
+</p>
+
+<p>
+In order to capture the piston signals, I thought about using an Arduino board. So I bought an Arduino MEGA. There are libraries in Ardiuno that deal with buttons switches (including de-bouncing) and sending MIDI events. I wrote a small program for the Arduino that capture the buttons events and sends corresponding MIDI messages to the computer.
+</p>
+
+<p>
+I bought 25 buttons on eBay with about $1 a piece. I was a bit too enthusiastic about the price without realizing in the end, you get what you pay for. But I'll move on.
+</p>
+
+
+<div class="figure">
+<p><a href="./img/12_arduino_1.jpg"><img src="./img/thumbs/12_arduino_2.jpg" alt="12_arduino_2.jpg" /></a>
+</p>
+<p><span class="figure-number">Figure 19: </span>Arduino MEGA board</p>
+</div>
+
+<p>
+The Arduino would be connected to a computer using an USB port. It would also get its power from the same port (Arduino only needs 5V). In order to connect the Software with this device, the device must be MIDI compatible. By default, the Ardunio MEGA, when connected with USB is not "visible" by the virtual organ software as a true MIDI device. For this to work, I had to flash a custom firmware on the Ardunio, which would make it behave like a true MIDI device (which the VPO would "see"). The steps to do that are described bellow (also this page on <a href="https://www.arduino.cc/en/Hacking/DFUProgramming8U2">Arduino DFU Programming</a> was very useful):
+</p>
+
+<br class="clear-100">
+
+<ul class="org-ul">
+<li>Generate a HIDUINO firmware using <a href="http://ec2-54-175-5-211.compute-1.amazonaws.com/">PimpMyHiduino</a></li>
+
+<li>Short pins as described here (first two pins when looking at the board with the USB port oriented upper-left): <a href="https://www.arduino.cc/en/Hacking/DFUProgramming8U2">https://www.arduino.cc/en/Hacking/DFUProgramming8U2</a></li>
+
+<li><p>
+On Mac, install dfu-programmer then from the command line:
+</p>
+
+<p>
+<code>sudo dfu-programmer atmega16u2 erase</code>
+</p></li>
+
+<li><p>
+Flash the new hiduino firmware (so that Arduino is seen as a true MIDI device):
+</p>
+
+<p>
+<code>sudo dfu-programmer atmega16u2 flash hiduino_combi_prodan_firmware.hex</code>
+</p></li>
+
+<li><p>
+Soft reset the Arduino board:
+</p>
+
+<p>
+<code>sudo dfu-programmer atmega16u2 reset</code>
+</p></li>
+
+<li>Hard reset the Arduino using the button on the board</li>
+</ul>
+
+<p>
+The problem with this approach is that once you flash the hiduino, you don't have access to serial port anymore, meaning, you can't debug/ flash anything on the Arduino. This is a bit inconvenient because every time you need to make a change to the software, the firmware also needs to be updated. To make the Arduino debuggable again, you need to flash the old firmware (step 4. becomes):
+</p>
+
+<ul class="org-ul">
+<li><code>sudo dfu-programmer atmega16u2 flash MEGA-dfu_and_usbserial_combined.hex</code></li>
+</ul>
+
+<p>
+The layout for the buttons is the following (each line corresponds to a row of buttons, under a keyboard):
+</p>
+
+<pre class="example">
+a b c d                    -   +
+
+-  +                       -   +
+
+S         0  1  2  3  4    -   +    5  6  7  8  9     ---  --  ++  +++   C
+</pre>
+
+
+<p>
+All buttons, except for the S, are programmed to send the PROGRAM<sub>CHANGE</sub> MIDI event to the VP Software. The S button sends NOTE<sub>ON</sub>/ NOTE<sub>OFF</sub>.
+They map to the <i>Combination Stepper</i> of the VPO software. In short, given X number of combinations of stops stored in memory:
+</p>
+
+<ul class="org-ul">
+<li><code>-, +</code>: step one combination down/ up;</li>
+<li><code>0-9</code>: step through the combinations 0 to 9 in a group of 10;</li>
+<li><code>--, ++</code>: step 10 combinations down/ up;</li>
+<li><code>---, +++</code>: step 100 combinations down/ up;</li>
+<li><code>a,b,c,d</code> can be assigned different functions;</li>
+<li><code>S</code> - store one combination. To use it, one needs to: "pull" the desired stops, hold S, and press one of the 0 to 9 buttons;</li>
+<li><code>C</code> - cancel registration;</li>
+</ul>
+
+<p>
+The source code of the whole Arduino program can be found in my git repository:
+</p>
+
+<p>
+<a href="https://github.com/christian/virtual-organ/blob/master/ArduinoCombinationPistons/combination_pistons.ino">Arduino Combination Program</a>
+</p>
+
+<p>
+Beside handling the button the program is also is able to read some special messages (MIDI SYSEX) to be displayed on a small 2x14 display. The VPO software can be configured to output these messages to a MIDI OUT port. I can show for example what organ is loaded, what is the current activated combination. Although I tested this and it seems to work, I don't use it in the my organ because I could not find a suitable place for the display.
+</p>
+
+<p>
+I mounted the buttons on the wooden strips, soldered and wired them. I tested the connections with the multimeter. Then I connected them to the Arduino board and looked for events on the MIDI monitor. It worked. This was a major milestone.
+</p>
+
+
+<div class="figure">
+<p><a href="img/12_thumb_pistons_soldering_1.jpg"><img src="./img/thumbs/12_thumb_pistons_soldering_1.jpg" alt="12_thumb_pistons_soldering_1.jpg" /></a>
+</p>
+<p><span class="figure-number">Figure 20: </span>Soldering &#x2026;</p>
+</div>
+
+
+<div class="figure">
+<p><a href="img/12_thumb_pistons_soldering_2.jpg"><img src="./img/thumbs/12_thumb_pistons_soldering_2.jpg" alt="12_thumb_pistons_soldering_2.jpg" /></a>
+</p>
+<p><span class="figure-number">Figure 21: </span>&#x2026; and wiring the thumb pistons</p>
+</div>
+
+<br class="clear-100">
+</div>
+</div>
+
+
+<div id="outline-container-org6cb8fa3" class="outline-2">
+<h2 id="org6cb8fa3">Desk &amp; Bench</h2>
+<div class="outline-text-2" id="text-org6cb8fa3">
+<p>
+This was <i>the point where I got really lucky</i>. During the period I worked on this project, from time to time, I used to peek at the different eBay-like websites, for potentially useful organ related stuff. It was a random process. One morning, I found an add with a church <sup><a id="fnr.2" class="footref" href="#fn.2">2</a></sup> <b>donating</b> an old Johannus. The sound board was broken and I learned later that nobody was playing on it anymore. I exercised my French a bit and called them. They said I can come and pick it up. So I did that.
+</p>
+
+<p>
+At this point I had a desk, a bench and most importantly a really nice wireless pedal board. The MIDI part on the organ was also functional but I already had my own MIDI processors. I had to remove the "illuminated rocker tabs" and pretty much everything inside "the box". The speakers inside I kept, thinking I might do something with them, as well as the keyboards, which were in good shape. The pedal board was in very good shape. The bench is also very stable. The top can be opened and sheet music can be stored inside. A neat and unexpected feature! Also the ability to cover the manuals and protect them from dust and small kids is something I found useful.
+</p>
+
+
+<div class="figure">
+<p><a href="img/13_johannus.jpg"><img src="./img/thumbs/13_johannus.jpg" alt="13_johannus.jpg" /></a>
+</p>
+<p><span class="figure-number">Figure 22: </span>The block I had built and the old Johannus</p>
+</div>
+
+<div class="figure">
+<p><a href="img/13_pedal.jpg"><img src="./img/thumbs/13_pedal.jpg" alt="13_pedal.jpg" /></a>
+</p>
+<p><span class="figure-number">Figure 23: </span>Pedal board in pristine condition</p>
+</div>
+
+<br class="clear">
+
+
+<div class="figure">
+<p><a href="img/13_integration.jpg"><img src="./img/thumbs/13_integration.jpg" alt="13_integration.jpg" /></a>
+</p>
+<p><span class="figure-number">Figure 24: </span>Working on the integration by putting the manuals into the "new" desk</p>
+</div>
+
+<div class="figure">
+<p><a href="img/13_integration_completed.jpg"><img src="./img/thumbs/13_integration_completed.jpg" alt="13_integration_completed.jpg" /></a>
+</p>
+<p><span class="figure-number">Figure 25: </span>Integration&#x2026; somehow done</p>
+</div>
+
+<br class="clear">
+</div>
+</div>
+
+
+<div id="outline-container-org7746e5d" class="outline-2">
+<h2 id="org7746e5d">Pedal Board</h2>
+<div class="outline-text-2" id="text-org7746e5d">
+<p>
+I had the pedal board so the next step would be to connect it to my setup. That means, when touching a note with the feet, sound should be emitted. On the bottom of the desk, where the pedal board touches the desk, there are some PCB stripes with <a href="http://www.arunet.co.uk/tkboyd/ec/ec1RehaReedP0331.jpg">reed switches</a>. Each reed swatch is aligned with a note on the pedal. The pedal notes contain a magnet at their end (so the magnet is aligned/close to the reed switch). When the note is pressed with the feet, the magnet goes down, closer to the reed and this closes the circuit. I needed to send these signals to the MIDI encoder. In the beginning I mentioned I had already purchased a Gino Midi Encoder (general) that can be connected to the main MIDI board, for the pedal board. Now I had the opportunity to use it. I "simply" had to somehow connect the pins on the reeds boards to the MIDI encoder.
+</p>
+
+<p>
+After four consecutive "late night shifts" of wiring, measuring and failing, I gave up. I could not get signals to pass properly. So I wrote to gino-midi about my problem. They were very prompt and informed me that Johannus usually put the diodes on the pedal boards, the other way than normal, and I should simply remove them from the PCB as they are not needed. As I said, my experience with electronics is super small.
+</p>
+
+
+<div class="figure">
+<p><a href="img/14_pedal_midi_encoder_stripe.jpg"><img src="./img/thumbs/14_pedal_midi_encoder_stripe.jpg" alt="14_pedal_midi_encoder_stripe.jpg" /></a>
+</p>
+<p><span class="figure-number">Figure 26: </span>Johannus pedal switches board</p>
+</div>
+
+
+<div class="figure">
+<p><a href="img/14_pedal_cutting_the_diodes.jpg"><img src="./img/thumbs/14_pedal_cutting_the_diodes.jpg" alt="14_pedal_cutting_the_diodes.jpg" /></a>
+</p>
+<p><span class="figure-number">Figure 27: </span>Cutting the diodes on the stripe</p>
+</div>
+
+<br class="clear">
+
+<p>
+So at this point I had keyboards, pedal board and combination system in place.
+</p>
+</div>
+</div>
+
+
+<div id="outline-container-orga854621" class="outline-2">
+<h2 id="orga854621">Expression Pedals</h2>
+<div class="outline-text-2" id="text-orga854621">
+<p>
+There were three expression pedals on the Johannus organ I got.
+</p>
+
+
+<div class="figure">
+<p><a href="img/15_expression_pedal_potentiometer.jpg"><img src="./img/thumbs/15_expression_pedal_potentiometer.jpg" alt="15_expression_pedal_potentiometer.jpg" /></a>
+</p>
+<p><span class="figure-number">Figure 28: </span>Mounting a new potentiometer in the expression pedal</p>
+</div>
+
+<p>
+These can be hooked with the VPO software in order to control things like volume, expression, swell box enclosure etc. They have analog linear potentiometers inside. The Big Gino MIDI board is able to read up to 7 analog inputs (from potentiometers) and transform those into MIDI messages that the software can than read and control the organ behavior. The potentiometers were really old and worn so I bought new ones, mounted them and connected them to the MIDI Encoder.
+</p>
+
+<br class="clear">
+</div>
+</div>
+
+
+<div id="outline-container-org144ba42" class="outline-2">
+<h2 id="org144ba42">Stops and registration</h2>
+<div class="outline-text-2" id="text-org144ba42">
+<p>
+An pipe organ can have many stops. These are the different "types of sounds" (flutes, reeds, violin-like etc.). One or more stop can be "activated" (pulled) at one time. These are controlled in the VPO software. I needed a way to control the stops in the software using some external mechanism (buttons/ rocker tabs). This part I struggled with the most. I had three attempts. The first two failed and the third one is ugly (but efficient).
+</p>
+
+<p>
+I have to mention that I was very stubborn and wanted to push physical buttons for activating the stops as opposed to touching some glossy touch screen. Here's what I did in short:
+</p>
+</div>
+
+<div id="outline-container-org6139042" class="outline-3">
+<h3 id="org6139042">Attempt No. 1</h3>
+<div class="outline-text-3" id="text-org6139042">
+<p>
+Many people were using Novation Launchpads to control the stops. These can be configured to emit MIDI messages to the software that control the stops. Pushing a button on the Launchpad is equivalent to pulling a stop on the virtual organ. They light up when the stop is activates. Colors are configurable. So I bought a second hand Novation Launchpad.
+</p>
+
+<p>
+The stops are labeled on the organ so I needed a way to label them on the Launchpad. I bought some transparent sheets and "glued" them with Velcro that I stuck on the Launchpad. I printed the names of the stops on a sheet. Each organ sample set has it's own stops/ disposition of stops, so for each organ such a sheet needs to be printed.
+</p>
+
+<p>
+I wrote a small program in Ruby that generates an A4 pdf with the names of Stops read from a text file. The pdf can be printed on the transparent sheet.
+</p>
+
+<p>
+The source code of the Ruby program can be found here:
+</p>
+
+<p>
+<a href="https://github.com/christian/virtual-organ/tree/master/LaunchpadStops">Launchpad Stops Ruby</a>
+</p>
+
+<p>
+The final result:
+</p>
+
+
+<div class="figure">
+<p><a href="img/16_launchpad.jpg"><img src="./img/thumbs/16_launchpad.jpg" alt="16_launchpad.jpg" /></a>
+</p>
+<p><span class="figure-number">Figure 29: </span>Launchpad with transparent sheet</p>
+</div>
+
+
+<div class="figure">
+<p><a href="img/15_launchpad_testing.jpg"><img src="./img/thumbs/16_launchpad_testing.jpg" alt="16_launchpad_testing.jpg" /></a>
+</p>
+<p><span class="figure-number">Figure 30: </span>Unit testing the launchpad</p>
+</div>
+
+<br class="clear">
+
+<p>
+I didn't like this because:
+</p>
+
+<ul class="org-ul">
+<li>it felt cumbersome to change the sheets when changing the organs;</li>
+<li>the feeling of pressing a button through a plastic sheet is not nice. I did manage to cut a rectangular piece on each button, in order to press the button directly;</li>
+<li>I didn't find a reasonable way of mounting the Launchpad.</li>
+</ul>
+
+<p>
+So I sold the Launchpad six months after the purchase for the same price I bought it and moved on the attempt no. 2.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org0624b1d" class="outline-3">
+<h3 id="org0624b1d">Attempt No. 2</h3>
+<div class="outline-text-3" id="text-org0624b1d">
+<p>
+I the meantime I got to my senses and started to appreciate the flexibility of a touch screen. Changing the organ and the stops is done with a touch. I thought about writing a Java program that renders some buttons and connects with the VPO software through a virtual MIDI port.
+</p>
+
+<p>
+On Ali Express I found a 10" capacitive touch screen, frame only, which looked like I could integrate in the organ. It would fit on the side of the console, in a portrait mode mode next to the manuals. Being precautios, I order one to test. It looked somehow cheaply made but it worked.
+</p>
+
+
+<div class="figure">
+<p><a href="img/17_10_inch_monitor.jpg"><img src="./img/thumbs/17_10_inch_monitor.jpg" alt="17_10_inch_monitor.jpg" /></a>
+</p>
+<p><span class="figure-number">Figure 31: </span>10" monitor from AliExpress</p>
+</div>
+
+<div class="figure">
+<p><a href="img/17_java_midi_program.jpg"><img src="./img/thumbs/17_java_midi_program.jpg" alt="17_java_midi_program.jpg" /></a>
+</p>
+<p><span class="figure-number">Figure 32: </span>JAVA midi program</p>
+</div>
+
+<br class="clear">
+
+<p>
+There were two problems with this approach that I didn't foresee. First, the resolution of the screen ~1000x600 was smaller that the VPO software minimum required ~980x800. So the screen was not able to display the whole interface of the software. And secondly, everything was super small to manage with the fingers. I started working on the Java software that sends MIDI messages to a MIDI port and got a prototype.
+</p>
+
+<p>
+I decided to order the second monitor. This one arrived&#x2026; broken. It had no panel for capturing touch events, like the other one. Not cool! Oh well&#x2026; I contacted support and after about 3 months of back and forth, explaining my problem 4 times, with screenshots etc., they said I should send it back. The only problem was that sending it back costed like 2/3rds of the price I paid for it.
+</p>
+
+<p>
+Later I realized it was quite hard to see which stops are active when playing the organ. One would always had to lean on a side to inspect the status.
+</p>
+
+<p>
+It's also worth mentioning that at this point in time family matters slashed a big portion of the small free time I had so I was not able to finish the Java program I started.
+</p>
+
+<p>
+For the record, I uploaded the progress with the Java program on github (pure Java, no other libraries):
+</p>
+
+<p>
+<a href="https://github.com/christian/virtual-organ/tree/master/JavaMidiStops">Java Midi Stops</a>
+</p>
+
+<p>
+Which takes me to solution number three.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgd944706" class="outline-3">
+<h3 id="orgd944706">Attempt No. 3</h3>
+<div class="outline-text-3" id="text-orgd944706">
+<p>
+I've decided to try something new, so I bought a 23" inch touch screen monitor, capacitive touch (HannsG HT231HPB), decently priced, with warranty from a German company and placed it on top of the music stand using a monitor mount. There! Flexible, big, able to control the stops and perform maintenance tasks for Windows and the VPO software with little effort.
+</p>
+
+<p>
+The only problem I see with this solution is that it's not so pretty, but it's very efficient. Maybe it will be prettier in v2. Pictures in the final section.
+</p>
+</div>
+</div>
+</div>
+
+
+<div id="outline-container-org48989c0" class="outline-2">
+<h2 id="org48989c0">The computer</h2>
+<div class="outline-text-2" id="text-org48989c0">
+<p>
+So far I had been using my Thinkpad notebook as a computer. But this was slow. I could notice the roundtrip latency between touching a key and hearing the sound. The VPO software reported ~30ms roundtrip. I had already planned to buy a desktop computer to use for the organ. I didn't need a dedicated Graphics Card so I decided an Intel i5 CPU with integrated graphics card would be enough. Also, I wanted a Mini-ITX so that I can place it inside desk and wouldn't be visible to the outside.
+</p>
+
+<p>
+I bought the following components and assembled them:
+</p>
+
+<ul class="org-ul">
+<li>Mini ITX case + Power supply: Fractal Node 202 + SFX 450W PSU (HTPC);</li>
+<li>Hard drive: Samsung SSD 850 Evo 500GB SSD;</li>
+<li>CPU: Intel Core i5-7600 (3.50GHz / 6MB);</li>
+<li>Motherboard: Gigabyte Z170N WiFi;</li>
+<li>32 GB RAM: Corsair Vengeance LPX (2x, 16GB, DDR4-3000, DIMM 288);</li>
+</ul>
+
+<p>
+This was the first time I've put a PC on my own. Of course, I had to do at least one big mistake. There was an incompatibility between the CPU and the motherboard (very stupid mistake). In short, same model of motherboard, but with two "revisions". One revision, the one that I got, not compatible with the CPU, the other one, compatible. This information was somehow hidden on the producers website and non-existent on the vendor website so I simply overlooked it. I ended up buying the cheapest CPU the board would support, do a BIOS upgrade which made the board compatible with the CPU (luckily this existed) and sold the CPU at 1/3rd of what I paid. It could have been worse I guess&#x2026;
+</p>
+
+<p>
+I bought a key switch (momentary) that is connected to two pins on the motherboard which, when shorted, turn the computer on. Very useful if you have small kids. For turning on the MIDI circuit, I used another switch.
+</p>
+
+
+<div class="figure">
+<p><a href="img/18_computer_parts.jpg"><img src="./img/thumbs/18_computer_parts.jpg" alt="18_computer_parts.jpg" /></a>
+</p>
+<p><span class="figure-number">Figure 33: </span>Computer parts</p>
+</div>
+
+<div class="figure">
+<p><a href="img/18_assembling_computer.jpg"><img src="./img/thumbs/18_assembling_computer.jpg" alt="18_assembling_computer.jpg" /></a>
+</p>
+<p><span class="figure-number">Figure 34: </span>Assembling the computer</p>
+</div>
+
+<div class="figure">
+<p><a href="img/20_key.jpg"><img src="./img/thumbs/20_key.jpg" alt="20_key.jpg" /></a>
+</p>
+<p><span class="figure-number">Figure 35: </span>Key switch to turn the computer on</p>
+</div>
+
+<br class="clear">
+
+<p>
+For maintenance/ installing sample sets I use a wireless keyboard integrated touch pad from Logitec. It can be easily stored inside the bench.
+</p>
+</div>
+</div>
+
+
+<div id="outline-container-org5372e9a" class="outline-2">
+<h2 id="org5372e9a">The software</h2>
+<div class="outline-text-2" id="text-org5372e9a">
+<p>
+There are two main alternatives in terms of software. The most popular and advanced is <a href="https://www.hauptwerk.com/">Hauptwerk</a>. The "Advanced Edition" (advanced because it doesn't limit how big can the organ samples be) is <b>very</b> expensive in my opinion ($600 US, 700EUR in Europe). It is the most advanced in terms of features. It can do crazy things I heard, like voicing separate pipes etc. - which I don't need. If you want to be able to load a bigger than 3GB sample set, you need this version. It comes with a HASP dongle that cannot be backed up, so if you loose it - it's not good&#x2026;
+</p>
+
+<p>
+The alternative is Grand Orgue, an open source software which worked very well when I tried it. The community is smaller though.
+</p>
+
+<p>
+All the Sample Set manufacturers create samples for Hauptwerk by default. Some manufacturers also encrypt the sample set so you need to upgrade the Hauptwerk dongle to use them. This makes the sample set unusable with Grand Orgue. It is (in theory) possible to port the unencrypted samples to Grand Orgue, but it's an extra step that the user needs to do before using the sample set. I've never tried it.
+</p>
+
+<p>
+In the end I bought Hauptwerk. I'm enjoing it, the quality is very good and I'm hoping not to loose the USB dongle.
+</p>
+</div>
+</div>
+
+
+<div id="outline-container-orgb6541b5" class="outline-2">
+<h2 id="orgb6541b5">Sound system &amp; Illumination</h2>
+<div class="outline-text-2" id="text-orgb6541b5">
+<p>
+For quiet practicing I'm using AKG 701 headphones. They are open and they sound very nice. It feels like the sound isn't really coming from the headphones, but from the room. They also go very low in terms of frequencies, which is important for the low frequencies of the 16' stops. I'm no expert in headphones, I bought these after reading some reviews and I'm happy with them. They are also supposed to be very neutral. I bought a small thing from eBay: to "hang" them on the organ.
+</p>
+
+
+<div class="figure">
+<p><a href="img/21_heaphones.jpg"><img src="./img/thumbs/21_heaphones.jpg" alt="21_heaphones.jpg" /></a>
+</p>
+<p><span class="figure-number">Figure 36: </span>Headphone holder</p>
+</div>
+
+<div class="figure">
+<p><a href="img/21_pedal_illumination.jpg"><img src="./img/thumbs/21_pedal_illumination.jpg" alt="21_pedal_illumination.jpg" /></a>
+</p>
+<p><span class="figure-number">Figure 37: </span>Pedal illumination</p>
+</div>
+
+<br class="clear">
+
+<p>
+Next came the speakers. I wanted a very simple stereo setup, with two monitors. Same requirements for the speakers: frequencies as low as possible, neutral sound and studio grade. In my research I discovered a small polish company called APS. Their <a href="http://www.aps-company.com/klasik-en/">Klassic monitors</a> go as low as 35Hz, which seems to be quite low for speakers of this size. This should be enough for the low 16ft stops. They sound very neutral to me and very clean. Price wise, they were also very attractive.
+</p>
+
+<p>
+I don't have an illumination solution for the sheet music yet.
+For the pedal board I found some strips at IKEA, and it looks ok.
+</p>
+</div>
+</div>
+
+
+<div id="outline-container-org5d358fc" class="outline-2">
+<h2 id="org5d358fc">End result and conclusions</h2>
+<div class="outline-text-2" id="text-org5d358fc">
+<p>
+After putting everything together, my console looks like bellow. The computer is hidden, the big touch screen monitor is accessible and the sound is crisp and clean. The manuals can be covered with a wooden rolling cover.
+</p>
+
+
+<div class="figure">
+<p><a href="img/22_full_1.jpg"><img src="./img/thumbs/22_full_1.jpg" alt="22_full_1.jpg" /></a>
+</p>
+<p><span class="figure-number">Figure 38: </span>Final version #1</p>
+</div>
+
+<div class="figure">
+<p><a href="img/22_full_2.jpg"><img src="./img/thumbs/22_full_2.jpg" alt="22_full_2.jpg" /></a>
+</p>
+<p><span class="figure-number">Figure 39: </span>Final version #2</p>
+</div>
+
+<br class="clear">
+
+<p>
+<b>Lessons learned:</b>
+</p>
+
+<ul class="org-ul">
+<li>don't buy cheap stuff from eBay; you get what you pay for;</li>
+<li>don't buy cheap power supplies. At one point, some cheap power supply interfered with my speakers in a very weird way;</li>
+<li>when building a computer, all components must be thoroughly verified for compatibility;</li>
+<li>if you buy new speakers, and have small kids, they will <del>be tempted to</del> push the dust cap inside;</li>
+</ul>
+
+<p>
+This has been a very fun ride. I started in April 2016 and considered it done in ~April 2017. I learned a lot and am I very happy to use an instrument I put together myself. Also in terms of servicing, it's very probably that I have an idea how to fix it. No doubt, I will make further improvements along the way.
+</p>
+
+<p>
+During the process of building this, my wife has been extremely kind and patient and agreed to keep this mammoth into the house. I am very thankful to her. I believe version 2 will look much better.
+</p>
+
+<div class="outline-2" id="meta">
+<p>
+written by <b>Cristi Prodan</b> on <span class="timestamp-wrapper"><span class="timestamp">&lt;2017-08-01 Tue&gt;</span></span>.
+</p>
+</div>
+
+<hr  />
+
+<p>
+If you would like to post a comment to the article, please write me at prodan.cristian AT gmail.com.
+</p>
+</div>
+</div>
+<div id="footnotes">
+<h2 class="footnotes">Footnotes: </h2>
+<div id="text-footnotes">
+
+<div class="footdef"><sup><a id="fn.1" class="footnum" href="#fnr.1">1</a></sup> <div class="footpara"><p class="footpara">
+Sketchup 3D Model Warehouse, "Custom Pipe Organ Console Design", Copyright Jeffrey Sharp 2008, Licensed under Creatives Commons v.3
+</p></div></div>
+
+<div class="footdef"><sup><a id="fn.2" class="footnum" href="#fnr.2">2</a></sup> <div class="footpara"><p class="footpara">
+Eglise Adventiste du Septième Jour de Renens
+</p></div></div>
+
+
+</div>
+</div></div>
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Markdown CV | Cristi Prodan</title>
+    <link rel="stylesheet" href="index_files/cv.css">
+    <style>
+      .md-view {
+        white-space: pre-wrap;
+        font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace;
+        font-size: 0.95rem;
+        line-height: 1.5;
+        margin: 0;
+        padding: 1rem;
+        border: 1px solid rgba(31, 42, 55, 0.14);
+        border-radius: 0.6rem;
+        background: rgba(255, 255, 255, 0.75);
+      }
+    </style>
+  </head>
+  <body>
+    <main class="cv-page">
+      <header class="cv-header">
+        <div class="top-links">
+          <a class="interactive-link" href="index.html">Back to CV</a>
+          <a class="interactive-link" href="cv.md">Open Raw .md</a>
+        </div>
+        <h1>Markdown CV</h1>
+      </header>
+      <pre id="md-content" class="md-view">Loading...</pre>
+    </main>
+    <script>
+      fetch("cv.md")
+        .then(function(response) {
+          if (!response.ok) throw new Error("Failed to load cv.md");
+          return response.text();
+        })
+        .then(function(text) {
+          document.getElementById("md-content").textContent = text;
+        })
+        .catch(function() {
+          document.getElementById("md-content").textContent =
+            "Could not load cv.md. Make sure you are serving the site via HTTP.";
+        });
+    </script>
+  </body>
+</html>
