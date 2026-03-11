@@ -79,7 +79,7 @@ const deepDetailsByHighlight = {
     title: "PTC Schweiz",
     lines: [
       "Built, owned and operated Vuforia Cloud microservices (Scala, Akka) for manufacturing Augmented Reality products on AWS.",
-      "Collaborated with ML engineers to integrate models into production APIs and containerized services.",
+      "Collaborated with ML engineers to integrate models into production APIs and containerized services, and wrote a data pipeline/workflow orchestration for ML models from scratch.",
       "Implemented end-to-end automated tests in Scala for REST APIs and reduced on-call incidents.",
       "Developed CI/CD pipelines with GitHub Actions and TeamCity.",
       "Delivered major refactors and contributed to internal deployment tooling.",

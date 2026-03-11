@@ -30,7 +30,7 @@ Jan 2024 - Feb 2025
 Oct 2015 - Jan 2024
 
 - Built, owned and operated Vuforia Cloud microservices (Scala, Akka) for manufacturing Augmented Reality products LIVE on AWS.
-- Collaborated strongly with Machine Learning engineering Team to integrate models into production APIs and containerized services; collaborated with testing and support teams.
+- Collaborated strongly with Machine Learning engineering Team to integrate models into production APIs and containerized services; wrote a data pipeline and workflow orchestration for ML models from scratch; collaborated with testing and support teams.
 - Implemented end-to-end automated tests in Scala to strengthen the reliability of REST APIs reducing on-call incidents.
 - Developed CI/CD pipelines with GitHub Actions and TeamCity.
 - Delivered major refactors and contributed to internal deployment tooling.
