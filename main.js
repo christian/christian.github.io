@@ -11,214 +11,8 @@ const categories = [
   { id: "education", label: "Education", color: "#d4f7dc" },
   { id: "skills", label: "Skills", color: "#e6dcff" },
 ];
-const highlightsByCategory = {
-  employment: [
-    { id: "emp-1", title: "Independent contractor · Founder/Engineer", meta: "Jan 2025 - Feb 2026" },
-    { id: "emp-2", title: "Zerofy · Senior Software Engineer", meta: "Jan 2024 - Feb 2025" },
-    { id: "emp-3", title: "PTC Schweiz · Senior Software Engineer", meta: "Oct 2015 - Jan 2024" },
-    { id: "emp-4", title: "Qualcomm · Senior Engineer", meta: "Jan 2014 - Oct 2015" },
-    { id: "emp-5", title: "Kooaba · Software Engineer", meta: "Feb 2011 - Jan 2014" },
-    { id: "emp-6", title: "Alliants · Head of Technology", meta: "Sep 2008 - Feb 2011" },
-  ],
-  "fun-projects": [
-    {
-      id: "fun-1",
-      title: "Virtual Private Organ",
-      meta: "Since 2013",
-    },
-    {
-      id: "fun-2",
-      title: "Christmas concerto",
-      meta: "2025",
-    },
-    {
-      id: "fun-3",
-      title: "LilyPond engraving",
-      meta: "Ongoing",
-    },
-    {
-      id: "fun-4",
-      title: "e-commerce solution",
-      meta: "Since 2012",
-    },
-  ],
-  education: [
-    { id: "edu-1", title: "Babes-Bolyai University · MSc Computer Science", meta: "2008-2010" },
-    { id: "edu-2", title: "Alexandru Ioan Cuza University · BSc Computer Science", meta: "2005-2008" },
-    { id: "edu-3", title: "Machine Learning Course · Andrew Ng", meta: "2011" },
-  ],
-  skills: [
-    { id: "skill-1", title: "Languages", meta: "" },
-    { id: "skill-2", title: "Frameworks", meta: "" },
-    { id: "skill-3", title: "Cloud", meta: "" },
-    { id: "skill-4", title: "Data / Search", meta: "" },
-    { id: "skill-5", title: "Tooling", meta: "" },
-    { id: "skill-6", title: "REST APIs", meta: "" },
-  ],
-};
-const deepDetailsByHighlight = {
-  "emp-1": {
-    title: "Independent contractor",
-    lines: [
-      "Transitioned into independent contracting to explore diverse projects and clients.",
-      "Founded and bootstrapped an e-commerce platform MVP for customizable online stores; launched at comerz.ro.",
-      "Built as multitenant Ruby on Rails + PostgreSQL solution.",
-      "Enjoyed generative AI capabilities: codex, conductor, linear.",
-    ],
-  },
-  "emp-2": {
-    title: "Zerofy",
-    lines: [
-      "Built serverless event-driven workflows with Google Cloud Functions, Firebase, and Node.js on GCP.",
-      "Supported the Zerofy mobile frontend (live app).",
-      "Integrated external vendor APIs, including reverse-engineered interfaces when documentation was unavailable.",
-      "Reduced technical debt through targeted refactors and cleanup.",
-    ],
-  },
-  "emp-3": {
-    title: "PTC Schweiz",
-    lines: [
-      "Built, owned and operated Vuforia Cloud microservices (Scala, Akka) for manufacturing Augmented Reality products on AWS.",
-      "Collaborated with ML engineers to integrate models into production APIs and containerized services.",
-      "Implemented end-to-end automated tests in Scala for REST APIs and reduced on-call incidents.",
-      "Developed CI/CD pipelines with GitHub Actions and TeamCity.",
-      "Delivered major refactors and contributed to internal deployment tooling.",
-      "Led initiatives to build internal tools improving productivity across teams.",
-      "Integrated Veracode and Snyk into the development workflow.",
-      "Implemented security best practices after recurring security training (OWASP, remote).",
-      "Implemented Single Sign On auth with Amazon Cognito.",
-      "Contributed to observability with Elasticsearch, Logstash, Kibana.",
-      "Authored API documentation using OpenAPI v3.",
-      "Implemented WebSocket proxy service for real-time collaboration (remote assistance, Chalk).",
-      "Conducted technical interviews and contributed to hiring decisions.",
-    ],
-  },
-  "emp-4": {
-    title: "Qualcomm",
-    lines: [
-      "Expanded cloud services with Scala and Play on AWS.",
-      "Automated operations and built internal tooling tasks using Python and Bash.",
-      "Ported services to Docker and maintained legacy Ruby on Rails systems.",
-      "Designed and built an internal Ruby DSL for cross-team API testing.",
-      "Participated in scaling infrastructure from a few to hundreds of EC2 instances on AWS (S3, SQS, DynamoDB, Cognito, Autoscaling).",
-    ],
-  },
-  "emp-5": {
-    title: "Kooaba",
-    lines: [
-      "Initiated and led the move from a monolith to Scala microservices, increasing scalability and reducing memory usage.",
-      "Built REST APIs and backend services with Ruby on Rails.",
-      "Rewrote and maintained an Android application.",
-      "Performed MySQL optimizations and updates on live databases with 30m+ rows.",
-    ],
-  },
-  "emp-6": {
-    title: "Alliants",
-    lines: [
-      "Hired and led a small team of 3 engineers delivering Ruby on Rails apps for different customers.",
-      "Coordinated on-site delivery with customers in London.",
-    ],
-  },
-  "fun-1": {
-    title: "Virtual Private Organ",
-    lines: [
-      "Since 2013, building and evolving a Virtual Private Organ musical instrument.",
-      "Initial story: hauptwerk/virtual-private-organ.html",
-      "Includes Arduino programming: github.com/christian/virtual-organ/tree/master/ArduinoCombinationPistons",
-    ],
-    image: "./index_files/hauptwerk.jpg",
-    imageAlt: "Virtual Private Organ",
-  },
-  "fun-2": {
-    title: "Christmas concerto",
-    lines: [
-      "In 2025, conducted a small Christmas concerto with our small choir and orchestra.",
-      "Photo gallery: vanessaphotography20.pixieset.com/colindulluminii",
-    ],
-  },
-  "fun-3": {
-    title: "LilyPond engraving",
-    lines: [
-      "Big fan of LilyPond for engraving sheet music.",
-      "lilypond.org",
-    ],
-    image: "./index_files/favicon.ico",
-    imageAlt: "LilyPond logo",
-  },
-  "fun-4": {
-    title: "e-commerce solution",
-    lines: [
-      "Bootstrapped and maintained e-commerce solution with multiple API integrations.",
-      "Live since 2012: perlasuferintei.ro",
-    ],
-  },
-  "edu-1": {
-    title: "MSc Computer Science",
-    lines: [
-      "Babes-Bolyai University, Cluj-Napoca (2008-2010).",
-      "Thesis: Recommender Systems using Collaborative Filtering.",
-      "github.com/christian/Rho-article",
-    ],
-  },
-  "edu-2": {
-    title: "BSc Computer Science",
-    lines: [
-      "Alexandru Ioan Cuza University, Iasi (2005-2008).",
-      "Thesis: Mobile Recommender System.",
-    ],
-  },
-  "edu-3": {
-    title: "Machine Learning Course",
-    lines: [
-      "Machine learning course with Andrew Ng.",
-      "Back in 2011, before Coursera was invented.",
-    ],
-    image: "./index_files/41112.jpg",
-    imageAlt: "Andrew Ng course certificate",
-  },
-  "skill-1": {
-    title: "Languages",
-    lines: [
-      "Ruby, Python, Scala, JavaScript, Bash.",
-      "Strong backend focus, comfortable across the stack.",
-    ],
-  },
-  "skill-2": {
-    title: "Frameworks and Libraries",
-    lines: [
-      "Rails, Akka, Play, Node.js.",
-      "Built and operated production APIs and services.",
-    ],
-  },
-  "skill-3": {
-    title: "Cloud and Infrastructure",
-    lines: [
-      "AWS, GCP, Docker, Kubernetes.",
-      "Cloud-native services, scaling, and operational ownership.",
-    ],
-  },
-  "skill-4": {
-    title: "Data and Search",
-    lines: [
-      "MySQL, Elasticsearch, Kibana.",
-      "Large datasets, optimization, and production analytics.",
-    ],
-  },
-  "skill-5": {
-    title: "Testing and Tooling",
-    lines: [
-      "GitHub Actions, TeamCity, LaTeX, Open API, Linux.",
-      "Automation-first approach for delivery and reliability.",
-    ],
-  },
-  "skill-6": {
-    title: "REST APIs",
-    lines: [
-      "OAuth2, JWT, SSO.",
-      "Designed and shipped secure API platforms.",
-    ],
-  },
-};
+let highlightsByCategory = {};
+let deepDetailsByHighlight = {};
 const DETAIL_OFFSET_X = 34;
 const DETAIL_CARD_WIDTH = 360;
 const DETAIL_CARD_HEIGHT = 108;
@@ -253,6 +47,73 @@ let width = 0;
 let height = 0;
 let centerX = 0;
 let centerY = 0;
+
+function roleHeading(role) {
+  return role.company ? `${role.company} · ${role.role}` : role.role;
+}
+
+function roleDetailTitle(role) {
+  return role.company || role.role;
+}
+
+function buildCvMaps(cv) {
+  highlightsByCategory = {
+    employment: cv.experience.map((role) => ({
+      id: role.id,
+      title: roleHeading(role),
+      meta: role.period,
+    })),
+    "fun-projects": cv.funProjects.map((project) => ({
+      id: project.id,
+      title: project.title,
+      meta: project.meta || "",
+    })),
+    education: cv.education.map((entry) => ({
+      id: entry.id,
+      title: `${entry.institution} · ${entry.title}`,
+      meta: entry.period || "",
+    })),
+    skills: cv.skills.map((skill) => ({
+      id: skill.id,
+      title: skill.title,
+      meta: "",
+    })),
+  };
+
+  deepDetailsByHighlight = {};
+
+  for (const role of cv.experience) {
+    deepDetailsByHighlight[role.id] = {
+      title: roleDetailTitle(role),
+      lines: role.bullets,
+    };
+  }
+
+  for (const project of cv.funProjects) {
+    deepDetailsByHighlight[project.id] = {
+      title: project.title,
+      lines: project.lines,
+      image: project.image,
+      imageAlt: project.imageAlt,
+    };
+  }
+
+  for (const entry of cv.education) {
+    deepDetailsByHighlight[entry.id] = {
+      title: entry.title,
+      lines: [`${entry.institution} (${entry.period}).`, ...entry.details],
+      image: entry.image,
+      imageAlt: entry.imageAlt,
+    };
+  }
+
+  for (const skill of cv.skills) {
+    deepDetailsByHighlight[skill.id] = {
+      title: skill.title,
+      lines: [skill.items.join(", ")],
+    };
+  }
+}
 
 const zoomBehavior = d3
   .zoom()
@@ -342,7 +203,7 @@ function normalizeHref(value) {
 function linkifyText(raw) {
   const escaped = escapeHtml(raw);
   return escaped.replace(
-    /((?:https?:\/\/|www\.)[^\s<]+|(?:[A-Za-z0-9-]+\.)+[A-Za-z]{2,}(?:\/[^\s<]*)?|[A-Za-z0-9_./-]+\.html)/g,
+    /((?:https?:\/\/|www\.)[^\s<]+|(?:[a-z0-9-]+\.)+[a-z]{2,}(?:\/[^\s<]*)?|[A-Za-z0-9_./-]+\.html)/g,
     (match) => {
       let core = match;
       let trailing = "";
@@ -760,4 +621,18 @@ function resize() {
 }
 
 window.addEventListener("resize", resize);
-resize();
+
+async function init() {
+  const response = await fetch("./src/cv-data.json");
+  if (!response.ok) {
+    throw new Error("Failed to load CV data");
+  }
+  const cv = await response.json();
+  buildCvMaps(cv);
+  resize();
+}
+
+init().catch((error) => {
+  // eslint-disable-next-line no-console
+  console.error(error);
+});

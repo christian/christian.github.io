@@ -1,0 +1,210 @@
+{
+  "name": "Cristi Prodan",
+  "contacts": {
+    "phone": "+40 746 708 927",
+    "email": "prodan.cristian@gmail.com"
+  },
+  "socials": [
+    {
+      "label": "GitHub",
+      "href": "https://github.com/christian"
+    },
+    {
+      "label": "LinkedIn",
+      "href": "https://www.linkedin.com/in/cristianprodan/"
+    }
+  ],
+  "summary": "Senior Software Engineer specializing in backend platforms, distributed systems, and cloud infrastructure. I build reliable production services, own them in operation, and work comfortably across APIs, security, CI/CD, observability, and product delivery.",
+  "experience": [
+    {
+      "id": "emp-1",
+      "role": "Founder",
+      "company": "Comerz",
+      "location": "Remote, Romania",
+      "period": "Mar 2025 - Current",
+      "bullets": [
+        "Founded and bootstrapped https://comerz.ro, a multitenant e-commerce platform that enables entrepreneurs to create and manage online stores.",
+        "Designed and built the MVP end-to-end with Rails and PostgreSQL, covering tenant isolation, storefront management, product/catalog workflows, and production deployment.",
+        "Used AI-assisted development workflows with Codex, Conductor, and Linear to accelerate implementation, product iteration, and delivery."
+      ]
+    },
+    {
+      "id": "emp-2",
+      "role": "Senior Software Engineer",
+      "company": "Zerofy",
+      "location": "Remote, Romania",
+      "period": "Jan 2024 - Feb 2025",
+      "bullets": [
+        "Built backend workflows for the Zerofy mobile application using Google Cloud Functions, Firebase, and Node.js on GCP.",
+        "Implemented serverless, event-driven integrations that connected the product to external vendors and data providers.",
+        "Reverse-engineered undocumented vendor interfaces when official documentation was incomplete or unavailable.",
+        "Improved maintainability through targeted refactors, cleanup, and clearer boundaries around integration code."
+      ]
+    },
+    {
+      "id": "emp-3",
+      "role": "Senior Software Engineer",
+      "company": "PTC Schweiz",
+      "location": "Zürich, Switzerland and Remote, Romania",
+      "period": "Oct 2015 - Jan 2024",
+      "bullets": [
+        "Built, owned, and operated Vuforia Cloud microservices in Scala/Akka on AWS for manufacturing-focused augmented reality products.",
+        "Handled distributed systems concerns including scaling, fault tolerance, load balancing, service security, production deployments, and on-call incident response.",
+        "Operated Kubernetes-based services and improved observability with Elasticsearch, Logstash, and Kibana.",
+        "Built CI/CD and infrastructure workflows using GitHub Actions, TeamCity, AWS CloudFormation, and Terraform.",
+        "Delivered customer-facing backend APIs, including search APIs for Vivino and production APIs for ML model integrations.",
+        "Improved reliability with end-to-end REST API tests in Scala and refactors of long-lived services.",
+        "Strengthened security by integrating Veracode and Snyk, applying OWASP practices, and implementing Single Sign-On with Amazon Cognito.",
+        "Built internal deployment/productivity tooling, authored OpenAPI v3 documentation, and contributed to technical hiring."
+      ]
+    },
+    {
+      "id": "emp-4",
+      "role": "Senior Engineer",
+      "company": "Qualcomm",
+      "location": "Zürich, Switzerland",
+      "period": "Jan 2014 - Oct 2015",
+      "bullets": [
+        "Expanded AWS cloud services with Scala and Play.",
+        "Automated operations and internal tooling with Python and Bash.",
+        "Ported services to Docker and maintained legacy Ruby on Rails systems.",
+        "Designed and built an internal Ruby DSL for cross-team API testing.",
+        "Participated in scaling infrastructure from a few to hundreds of EC2 instances on AWS (S3, SQS, DynamoDB, Cognito, Autoscaling)."
+      ]
+    },
+    {
+      "id": "emp-5",
+      "role": "Software Engineer",
+      "company": "Kooaba",
+      "location": "Zürich, Switzerland",
+      "period": "Feb 2011 - Jan 2014",
+      "bullets": [
+        "Initiated and led the migration from a monolith to Scala microservices, improving scalability and reducing memory usage.",
+        "Built REST APIs and backend services with Ruby on Rails.",
+        "Rewrote and maintained an Android application.",
+        "Optimized MySQL queries and indexes on live production databases with 30m+ rows."
+      ]
+    },
+    {
+      "id": "emp-6",
+      "role": "Head of Technology",
+      "company": "Alliants",
+      "location": "Cluj-Napoca, Romania",
+      "period": "Sep 2008 - Feb 2011",
+      "bullets": [
+        "Hired and led a team of 3 engineers delivering Ruby on Rails applications for customer projects.",
+        "Coordinated on-site delivery with customers in London and translated business requirements into implementation plans."
+      ]
+    }
+  ],
+  "skills": [
+    {
+      "id": "skill-1",
+      "title": "Languages",
+      "items": [
+        "**Scala**",
+        "Ruby",
+        "Python",
+        "JavaScript",
+        "Bash"
+      ]
+    },
+    {
+      "id": "skill-2",
+      "title": "Backend and APIs",
+      "items": [
+        "Akka/Pekko",
+        "Rails",
+        "Play",
+        "Node.js",
+        "REST APIs",
+        "OpenAPI",
+        "OAuth2",
+        "JWT",
+        "SSO"
+      ]
+    },
+    {
+      "id": "skill-3",
+      "title": "Cloud and Infrastructure",
+      "items": [
+        "AWS",
+        "GCP",
+        "Docker",
+        "Kubernetes",
+        "CloudFormation",
+        "Terraform",
+        "Serverless"
+      ]
+    },
+    {
+      "id": "skill-4",
+      "title": "Data and Search",
+      "items": [
+        "MySQL",
+        "PostgreSQL",
+        "DynamoDB",
+        "Elasticsearch",
+        "Logstash",
+        "Kibana"
+      ]
+    },
+    {
+      "id": "skill-5",
+      "title": "Testing and Tooling",
+      "items": [
+        "GitHub Actions",
+        "TeamCity",
+        "Linux"
+      ]
+    }
+  ],
+  "education": [
+    {
+      "id": "edu-1",
+      "title": "Master's Degree, Computer Science",
+      "institution": "Babes-Bolyai University, Cluj-Napoca",
+      "period": "2008-2010",
+      "details": [
+        "Thesis: Recommender Systems using Collaborative Filtering.",
+        "https://github.com/christian/Rho-article"
+      ]
+    },
+    {
+      "id": "edu-2",
+      "title": "Bachelor's Degree, Computer Science",
+      "institution": "Alexandru Ioan Cuza University, Iasi",
+      "period": "2005-2008",
+      "details": [
+        "Thesis: Mobile Recommender System."
+      ]
+    },
+    {
+      "id": "edu-3",
+      "title": "Machine Learning Course",
+      "institution": "Andrew Ng",
+      "period": "2011",
+      "details": [
+        "Completed before Coursera launched as a public platform."
+      ]
+    }
+  ],
+  "languages": [
+    "English (fluent)",
+    "Romanian (fluent)",
+    "German (basic)"
+  ],
+  "funProjects": [
+    {
+      "id": "fun-1",
+      "title": "Virtual Private Organ",
+      "meta": "Since 2013",
+      "lines": [
+        "Long-running hardware/software project building a custom digital pipe organ.",
+        "Includes woodworking, MIDI electronics, Arduino programming, audio setup, and documentation."
+      ],
+      "image": "./index_files/hauptwerk.jpg",
+      "imageAlt": "Virtual Private Organ"
+    }
+  ]
+}

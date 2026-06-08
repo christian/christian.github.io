@@ -3,93 +3,87 @@
 Phone: +40 746 708 927  
 Email: [prodan.cristian@gmail.com](mailto:prodan.cristian@gmail.com)  
 GitHub: https://github.com/christian  
-LinkedIn: https://www.linkedin.com/in/cristianprodan/
+LinkedIn: https://www.linkedin.com/in/cristianprodan/  
 
 ## Summary
 
-Senior Software Engineer with experience designing and building cloud-based systems, microservices, and API platforms. Focused on reliability, scalability, and delivering production-ready software. Experienced across the stack, from DevOps to frontend, with particular strength in backend engineering. Recently developed an MVP end-to-end and enjoy working autonomously while collaborating with cross-functional teams.
+Senior Software Engineer specializing in backend platforms, distributed systems, and cloud infrastructure. I build reliable production services, own them in operation, and work comfortably across APIs, security, CI/CD, observability, and product delivery.
 
 ## Experience
 
-### Independent contractor (Remote EU - Romania)
-Jan 2025 - Feb 2026
+### Founder, Comerz (Remote, Romania)
+Mar 2025 - Current
 
-- Transitioned into independent contracting to explore diverse projects and clients.
-- Founded and bootstrapped an e-commerce platform MVP that enables entrepreneurs to create and manage online stores; launched at https://comerz.ro.
-- multitenant, Rails, Postgresql
-- Enjoyed generative AI capabilities: codex, conductor, linear.
+- Founded and bootstrapped https://comerz.ro, a multitenant e-commerce platform that enables entrepreneurs to create and manage online stores.
+- Designed and built the MVP end-to-end with Rails and PostgreSQL, covering tenant isolation, storefront management, product/catalog workflows, and production deployment.
+- Used AI-assisted development workflows with Codex, Conductor, and Linear to accelerate implementation, product iteration, and delivery.
 
-### Senior Software Engineer, Zerofy (Remote EU - Romania)
+### Senior Software Engineer, Zerofy (Remote, Romania)
 Jan 2024 - Feb 2025
 
-- Built serverless event-driven workflows with Google Cloud Functions (lambda), Firebase, Node.js (cloud-native on GCP) to support the mobile frontend (Zerofy App LIVE).
-- Integrated external vendor APIs, including reverse-engineered interfaces when documentation was unavailable.
-- Reduced technical debt through targeted refactors and cleanup.
+- Built backend workflows for the Zerofy mobile application using Google Cloud Functions, Firebase, and Node.js on GCP.
+- Implemented serverless, event-driven integrations that connected the product to external vendors and data providers.
+- Reverse-engineered undocumented vendor interfaces when official documentation was incomplete or unavailable.
+- Improved maintainability through targeted refactors, cleanup, and clearer boundaries around integration code.
 
-### Senior Software Engineer, PTC Schweiz (Zürich and Remote EU - Romania)
+### Senior Software Engineer, PTC Schweiz (Zürich, Switzerland and Remote, Romania)
 Oct 2015 - Jan 2024
 
-- Built, owned and operated Vuforia Cloud microservices (Scala, Akka) for manufacturing Augmented Reality products LIVE on AWS.
-- Collaborated strongly with Machine Learning engineering Team to integrate models into production APIs and containerized services; collaborated with testing and support teams.
-- Implemented end-to-end automated tests in Scala to strengthen the reliability of REST APIs reducing on-call incidents.
-- Developed CI/CD pipelines with GitHub Actions and TeamCity.
-- Delivered major refactors and contributed to internal deployment tooling.
-- Led initiatives to develop internal tools that improved developer productivity across multiple teams.
-- Integrated static analysis tools like Veracode and Snyk into the development workflow to enhance code security and quality.
-- Implemented security best practices across services after completing multiple security training programs throughout the years (owasp, remote).
-- Implemented Single Sign On auth with Amazon Cognito.
-- Contributed to monitoring and observability initiatives (Elasticsearch, Logstash, Kibana).
-- Authored API documentation using OpenAPI v3.
-- Implemented WebSocket (proxy) service for real-time collaboration services app (remote assistance, Chalk).
-- Conducted technical interviews and contributed to engineering hiring decisions.
+- Built, owned, and operated Vuforia Cloud microservices in Scala/Akka on AWS for manufacturing-focused augmented reality products.
+- Handled distributed systems concerns including scaling, fault tolerance, load balancing, service security, production deployments, and on-call incident response.
+- Operated Kubernetes-based services and improved observability with Elasticsearch, Logstash, and Kibana.
+- Built CI/CD and infrastructure workflows using GitHub Actions, TeamCity, AWS CloudFormation, and Terraform.
+- Delivered customer-facing backend APIs, including search APIs for Vivino and production APIs for ML model integrations.
+- Improved reliability with end-to-end REST API tests in Scala and refactors of long-lived services.
+- Strengthened security by integrating Veracode and Snyk, applying OWASP practices, and implementing Single Sign-On with Amazon Cognito.
+- Built internal deployment/productivity tooling, authored OpenAPI v3 documentation, and contributed to technical hiring.
 
 ### Senior Engineer, Qualcomm (Zürich, Switzerland)
 Jan 2014 - Oct 2015
 
-- Expanded cloud services with Scala and Play on AWS.
-- Automated operations and built internal tools tasks using Python and Bash.
+- Expanded AWS cloud services with Scala and Play.
+- Automated operations and internal tooling with Python and Bash.
 - Ported services to Docker and maintained legacy Ruby on Rails systems.
-- Designed and built an internal Ruby DSL for testing APIs across multiple teams, collaborating closely with those teams.
+- Designed and built an internal Ruby DSL for cross-team API testing.
 - Participated in scaling infrastructure from a few to hundreds of EC2 instances on AWS (S3, SQS, DynamoDB, Cognito, Autoscaling).
 
 ### Software Engineer, Kooaba (Zürich, Switzerland)
 Feb 2011 - Jan 2014
 
-- Initiated and led the move from a monolith to Scala-based microservices, increased scalability and reduced memory usage.
-- Built REST APIs and a web backend using Ruby on Rails.
+- Initiated and led the migration from a monolith to Scala microservices, improving scalability and reducing memory usage.
+- Built REST APIs and backend services with Ruby on Rails.
 - Rewrote and maintained an Android application.
-- Performed MySQL optimizations/ updates on live databases with 30m+ rows.
+- Optimized MySQL queries and indexes on live production databases with 30m+ rows.
 
 ### Head of Technology, Alliants (Cluj-Napoca, Romania)
 Sep 2008 - Feb 2011
 
-- Hired and led a small team of 3 engineers delivering Ruby on Rails apps for different customers.
-- Coordinated on-site delivery in London.
+- Hired and led a team of 3 engineers delivering Ruby on Rails applications for customer projects.
+- Coordinated on-site delivery with customers in London and translated business requirements into implementation plans.
 
 ## Skills
 
-- Languages: Ruby, Python, Scala, JavaScript, Bash
-- Frameworks and Libraries: Rails, Akka, Play, Node.js
-- Cloud and Infrastructure: AWS, GCP, Docker, REST APIs, Oauth2, JWT, SSO
-- Data and Search: MySQL, Elasticsearch, Kibana
-- Testing and Tooling: GitHub Actions, TeamCity, LaTeX, Open API, linux, awk, sed
+- Languages: **Scala**, Ruby, Python, JavaScript, Bash
+- Backend and APIs: Akka/Pekko, Rails, Play, Node.js, REST APIs, OpenAPI, OAuth2, JWT, SSO
+- Cloud and Infrastructure: AWS, GCP, Docker, Kubernetes, CloudFormation, Terraform, Serverless
+- Data and Search: MySQL, PostgreSQL, DynamoDB, Elasticsearch, Logstash, Kibana
+- Testing and Tooling: GitHub Actions, TeamCity, Linux
 
 ## Education
 
-- Master's Degree, Computer Science — Babes-Bolyai University, Cluj-Napoca (2008-2010).  
-  Thesis: Recommender Systems using Collaborative Filtering (https://github.com/christian/Rho-article)
-- Bachelor's Degree, Computer Science — Alexandru Ioan Cuza University, Iasi (2005-2008).  
-  Thesis: Mobile Recommender System
-- Machine learning course, with Andrew Ng.
-- Back in 2011, before Coursera was invented.
+- Master's Degree, Computer Science — Babes-Bolyai University, Cluj-Napoca (2008-2010).
+  Thesis: Recommender Systems using Collaborative Filtering.
+  https://github.com/christian/Rho-article
+- Bachelor's Degree, Computer Science — Alexandru Ioan Cuza University, Iasi (2005-2008).
+  Thesis: Mobile Recommender System.
+- Machine Learning Course — Andrew Ng (2011).
+  Completed before Coursera launched as a public platform.
 
 ## Languages
 
-English (fluent), Romanian (fluent), German (basic), French (basic)
+English (fluent), Romanian (fluent), German (basic)
 
 ## Fun projects
 
-- I love music. Since 2013 I'm building and evolving a Virtual Private Organ (musical instrument). Here's the initial story: hauptwerk/virtual-private-organ.html. Some Arduino programming on my github: https://github.com/christian/virtual-organ/tree/master/ArduinoCombinationPistons.
-- In 2025, I conducted a small Christmas concerto with our small choir and orchestra.
-- I'm a big fan of LilyPond for engraving sheet music: https://lilypond.org/
-- Bootstrapped and maintained e-commerce solution featuring various API integrations LIVE since 2012: https://www.perlasuferintei.ro/
+- Virtual Private Organ: Long-running hardware/software project building a custom digital pipe organ. Includes woodworking, MIDI electronics, Arduino programming, audio setup, and documentation.
+

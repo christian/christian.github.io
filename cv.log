@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999998 (TeX Live 2026) (preloaded format=xelatex 2026.3.5)  6 MAR 2026 11:33
+This is XeTeX, Version 3.141592653-2.6-0.999998 (TeX Live 2026) (preloaded format=xelatex 2026.3.5)  29 MAY 2026 10:28
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -359,16 +359,14 @@ Package hyperref Info: Link coloring OFF on input line 13.
 \@outlinefile=\write3
 \openout3 = `cv.out'.
 
- [1
 
-] [2]
-Overfull \hbox (96.62885pt too wide) in paragraph at lines 102--103
-\TU/TimesNewRoman(0)/m/n/10.95 initial story: []hauptwerk/virtual-private-organ
-.html[]. Some Arduino programming on my github: []https://github.com/christian/
-virtual-
+Underfull \hbox (badness 10000) in paragraph at lines 15--20
+
  []
 
-[3] (./cv.aux)
+[1
+
+] [2] [3] (./cv.aux)
  ***********
 LaTeX2e <2025-11-01>
 L3 programming layer <2026-01-19>
@@ -377,12 +375,12 @@ Package rerunfilecheck Info: File `cv.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
  ) 
 Here is how much of TeX's memory you used:
- 10495 strings out of 469709
- 214452 string characters out of 5466024
- 673548 words of memory out of 5000000
- 39051 multiletter control sequences out of 15000+600000
- 628233 words of font info for 60 fonts, out of 8000000 for 9000
+ 10497 strings out of 469709
+ 214548 string characters out of 5466024
+ 672548 words of memory out of 5000000
+ 39052 multiletter control sequences out of 15000+600000
+ 628241 words of font info for 61 fonts, out of 8000000 for 9000
  319 hyphenation exceptions out of 8191
- 73i,5n,93p,462b,398s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 73i,5n,93p,283b,398s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
 Output written on cv.pdf (3 pages).
