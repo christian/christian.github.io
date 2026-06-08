@@ -30,13 +30,16 @@ Jan 2024 - Feb 2025
 Oct 2015 - Jan 2024
 
 - Built, owned, and operated Vuforia Cloud microservices in Scala/Akka on AWS for manufacturing-focused augmented reality products.
+- Collaborated with Machine Learning engineers to integrate models into production APIs and containerized services, and wrote a data pipeline and workflow orchestration for ML models from scratch.
 - Handled distributed systems concerns including scaling, fault tolerance, load balancing, service security, production deployments, and on-call incident response.
 - Operated Kubernetes-based services and improved observability with Elasticsearch, Logstash, and Kibana.
 - Built CI/CD and infrastructure workflows using GitHub Actions, TeamCity, AWS CloudFormation, and Terraform.
 - Delivered customer-facing backend APIs, including search APIs for Vivino and production APIs for ML model integrations.
 - Improved reliability with end-to-end REST API tests in Scala and refactors of long-lived services.
 - Strengthened security by integrating Veracode and Snyk, applying OWASP practices, and implementing Single Sign-On with Amazon Cognito.
-- Built internal deployment/productivity tooling, authored OpenAPI v3 documentation, and contributed to technical hiring.
+- Built internal deployment/productivity tooling and led initiatives that improved developer productivity across multiple teams.
+- Authored OpenAPI v3 documentation and implemented a WebSocket proxy service for real-time remote assistance collaboration.
+- Conducted technical interviews and contributed to engineering hiring decisions.
 
 ### Senior Engineer, Qualcomm (Zürich, Switzerland)
 Jan 2014 - Oct 2015
