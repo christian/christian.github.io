@@ -79,7 +79,7 @@ function roleHeading(role) {
 function renderLocation(location) {
   const flagSpans = [];
   if (location.includes("Switzerland") || location.includes("Zürich")) {
-    flagSpans.push('<span class="location-flag" aria-label="Switzerland">🇨🇭</span>');
+    flagSpans.push('<span class="location-flag location-flag--switzerland" aria-label="Switzerland">🇨🇭</span>');
   }
   if (location.includes("Romania") || location.includes("Cluj-Napoca")) {
     flagSpans.push('<span class="location-flag" aria-label="Romania">🇷🇴</span>');

@@ -95,6 +95,11 @@ h3 {
   vertical-align: 0.06em;
 }
 
+.location-flag--switzerland {
+  font-size: 1em;
+  vertical-align: 0;
+}
+
 .period,
 .contact {
   margin: 0.25rem 0;
