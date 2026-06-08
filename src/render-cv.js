@@ -21,25 +21,71 @@ function normalizeHref(value) {
   return `https://${value}`;
 }
 
-function linkifyText(raw) {
-  const escaped = escapeHtml(raw);
-  return escaped.replace(
-    /((?:https?:\/\/|www\.)[^\s<]+|(?:[a-z0-9-]+\.)+[a-z]{2,}(?:\/[^\s<]*)?|[A-Za-z0-9_./-]+\.html)/g,
+function badge(label, className, attrs = "") {
+  return `<span class="${className}"${attrs}>${label}</span>`;
+}
+
+function highlightPlainText(text) {
+  return text.replace(
+    /\b(Founded and bootstrapped|Reverse-engineered|Initiated and led|Ruby on Rails|Scala\/Akka|REST APIs|CI\/CD|Elasticsearch|Logstash|Kibana|PostgreSQL|AWS|GCP|Scala|Akka|Rails|led)\b/g,
     (match) => {
-      let core = match;
-      let trailing = "";
-      while (/[.,)]/.test(core.slice(-1))) {
-        trailing = core.slice(-1) + trailing;
-        core = core.slice(0, -1);
+      if (match === "AWS") return badge("AWS", "cloud-highlight", ' data-tooltip="Amazon Web Services"');
+      if (match === "GCP") return badge("GCP", "cloud-highlight", ' data-tooltip="Google Cloud Platform"');
+      if (match === "Scala/Akka") {
+        return `${badge("Scala", "term-highlight")}/${badge("Akka", "term-highlight")}`;
       }
-      const href = escapeHtml(normalizeHref(core));
-      return `<a href="${href}" target="_blank" rel="noreferrer">${core}</a>${trailing}`;
+      if (["Elasticsearch", "Logstash", "Kibana"].includes(match)) {
+        return badge(match, "blue-underline");
+      }
+      if (["Founded and bootstrapped", "Reverse-engineered", "Initiated and led", "led"].includes(match)) {
+        return badge(match, "action-highlight");
+      }
+      return badge(match, "term-highlight");
     }
   );
 }
 
+function linkifyText(raw, { highlight = true } = {}) {
+  const escaped = escapeHtml(raw);
+  const linkPattern = /((?:https?:\/\/|www\.)[^\s<]+|(?:[a-z0-9-]+\.)+[a-z]{2,}(?:\/[^\s<]*)?|[A-Za-z0-9_./-]+\.html)/gi;
+  let output = "";
+  let lastIndex = 0;
+  let match;
+
+  while ((match = linkPattern.exec(escaped)) !== null) {
+    output += highlight ? highlightPlainText(escaped.slice(lastIndex, match.index)) : escaped.slice(lastIndex, match.index);
+
+    let core = match[0];
+    let trailing = "";
+    while (/[.,)]/.test(core.slice(-1))) {
+      trailing = core.slice(-1) + trailing;
+      core = core.slice(0, -1);
+    }
+
+    const href = escapeHtml(normalizeHref(core));
+    const liveBadge = core === "https://comerz.ro" ? badge("LIVE", "site-badge") : "";
+    output += `<a href="${href}" target="_blank" rel="noreferrer">${core}</a>${liveBadge}${trailing}`;
+    lastIndex = match.index + match[0].length;
+  }
+
+  output += highlight ? highlightPlainText(escaped.slice(lastIndex)) : escaped.slice(lastIndex);
+  return output;
+}
+
 function roleHeading(role) {
   return role.company ? `${role.role}, ${role.company}` : role.role;
+}
+
+function renderLocation(location) {
+  const flagSpans = [];
+  if (location.includes("Switzerland") || location.includes("Zürich")) {
+    flagSpans.push('<span class="location-flag" aria-label="Switzerland">🇨🇭</span>');
+  }
+  if (location.includes("Romania") || location.includes("Cluj-Napoca")) {
+    flagSpans.push('<span class="location-flag" aria-label="Romania">🇷🇴</span>');
+  }
+
+  return `${escapeHtml(location)}${flagSpans.length ? ` ${flagSpans.join(" ")}` : ""}`;
 }
 
 function renderExperience(experience) {
@@ -48,7 +94,7 @@ function renderExperience(experience) {
       const bullets = role.bullets.map((bullet) => `<li>${linkifyText(bullet)}</li>`).join("");
       return `
         <article>
-          <h3>${escapeHtml(roleHeading(role))} (${escapeHtml(role.location)})</h3>
+          <h3>${escapeHtml(roleHeading(role))} (${renderLocation(role.location)})</h3>
           <p class="period">${escapeHtml(role.period)}</p>
           <ul>${bullets}</ul>
         </article>
@@ -58,7 +104,8 @@ function renderExperience(experience) {
 }
 
 function renderSkillItem(item) {
-  return escapeHtml(item).replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>");
+  const emphasized = escapeHtml(item).replace(/\*\*(.+?)\*\*/g, "$1");
+  return highlightPlainText(emphasized);
 }
 
 function renderSkills(skills) {
