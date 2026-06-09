@@ -78,10 +78,10 @@ function roleHeading(role) {
 
 function renderLocation(location) {
   const flagSpans = [];
-  if (location.includes("Switzerland") || location.includes("Zürich")) {
+  if (location.includes("Switzerland") || location.includes("Elveția") || location.includes("Zürich")) {
     flagSpans.push('<span class="location-flag location-flag--switzerland" aria-label="Switzerland">🇨🇭</span>');
   }
-  if (location.includes("Romania") || location.includes("Cluj-Napoca")) {
+  if (location.includes("Romania") || location.includes("România") || location.includes("Cluj-Napoca")) {
     flagSpans.push('<span class="location-flag" aria-label="Romania">🇷🇴</span>');
   }
 
@@ -143,7 +143,9 @@ function renderFunProjects(funProjects) {
 }
 
 async function init() {
-  const response = await fetch("./src/cv-data.json");
+  const script = document.currentScript;
+  const dataSource = script?.dataset?.cvSrc || "./src/cv-data.json";
+  const response = await fetch(dataSource);
   if (!response.ok) throw new Error("Failed to load CV data");
   const cv = await response.json();
 
