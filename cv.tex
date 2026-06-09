@@ -1,10 +1,18 @@
 \documentclass[11pt,a4paper]{article}
 \usepackage[margin=1.7cm]{geometry}
 \usepackage{fontspec}
-\IfFontExistsTF{Source Sans 3}{
-  \setmainfont{Source Sans 3}
+\IfFontExistsTF{Avenir Next}{
+  \setmainfont{Avenir Next}
 }{
-  \setmainfont{Times New Roman}
+  \IfFontExistsTF{Helvetica Neue}{
+    \setmainfont{Helvetica Neue}
+  }{
+    \IfFontExistsTF{Source Sans 3}{
+      \setmainfont{Source Sans 3}
+    }{
+      \setmainfont{Times New Roman}
+    }
+  }
 }
 \usepackage[hidelinks]{hyperref}
 \setlength{\parindent}{0pt}
