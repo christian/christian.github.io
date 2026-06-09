@@ -45,7 +45,7 @@
       "id": "emp-3",
       "role": "Senior Software Engineer",
       "company": "PTC Schweiz",
-      "location": "Zürich, Switzerland and Remote, Romania",
+      "location": "Zürich, Switzerland",
       "period": "Oct 2015 - Jan 2024",
       "bullets": [
         "Built, owned, and operated Vuforia Cloud microservices in Scala/Akka on AWS for manufacturing-focused augmented reality products.",

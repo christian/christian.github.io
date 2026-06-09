@@ -26,7 +26,7 @@ Jan 2024 - Feb 2025
 - Reverse-engineered undocumented vendor interfaces when official documentation was incomplete or unavailable.
 - Improved maintainability through targeted refactors, cleanup, and clearer boundaries around integration code.
 
-### Senior Software Engineer, PTC Schweiz (Zürich, Switzerland and Remote, Romania)
+### Senior Software Engineer, PTC Schweiz (Zürich, Switzerland)
 Oct 2015 - Jan 2024
 
 - Built, owned, and operated Vuforia Cloud microservices in Scala/Akka on AWS for manufacturing-focused augmented reality products.

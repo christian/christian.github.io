@@ -26,7 +26,7 @@ Ian 2024 - Feb 2025
 - Am reverse-engineered interfețe de vendor nedocumentate atunci când documentația oficială era incompletă sau indisponibilă.
 - Am îmbunătățit mentenabilitatea prin refactorizări țintite, cleanup și limite mai clare în codul de integrare.
 
-### Senior Software Engineer, PTC Schweiz (Zürich, Elveția și Remote, România)
+### Senior Software Engineer, PTC Schweiz (Zürich, Elveția)
 Oct 2015 - Ian 2024
 
 - Am construit, deținut și operat microservicii Vuforia Cloud în Scala/Akka pe AWS pentru produse de realitate augmentată folosite în manufacturing.
